@@ -31,7 +31,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.ACCESSTOKEN }}
     - name: Docker build
-      run: | 
+      run: |
         docker build -t node-example .
         docker tag node-example anuhyeon/cicd_test:${GITHUB_SHA::7}
         docker push anuhyeon/cicd_test:${GITHUB_SHA::7}
