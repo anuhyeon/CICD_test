@@ -25,9 +25,14 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
+    - name: docker Hub login
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.ACCESSTOKEN }}
     - name: Docker build
       run: | 
-        docker login -u ${{ secrets.USERNAME }} -p ${{ secrets.PASSWORD }}
+        # docker login -u ${{ secrets.USERNAME }} -p ${{ secrets.PASSWORD }}
         docker build --platform linux/arm64 -t node-example .
         docker tag node-example anuhyeon/cicd_test:${GITHUB_SHA::7}
         docker push anuhyeon/cicd_test:${GITHUB_SHA::7}
