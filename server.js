@@ -39,8 +39,8 @@ app.get('/file', (req, res) => {
 });
 
 app.get('/status', (req, res) => {
-    const serverProfile = process.env.PROFILE || 'No color set'
-    res.status(200).send(`${serverProfile} ${process.env.PORT}`);
+    const serverProfile = process.env.PROFILES || 'No color set'
+    res.status(200).send(`${serverProfile}`);
 });
 
 server.listen(process.env.PORT || 44444, () => {
