@@ -4,6 +4,12 @@ WORKDIR /app
 
 COPY . .
 
+COPY package*.json ./
+
 RUN npm install
+
+ARG PROFILES
+
+ARG ENV
 
 CMD ["node","server"]

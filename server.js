@@ -39,9 +39,11 @@ app.get('/file', (req, res) => {
 });
 
 app.get('/status', (req, res) => {
-    res.status(404).send('Not Found');
+    const serverProfile = process.env.PROFILE || 'No color set'
+    res.status(200).send(serverProfile);
 });
 
-server.listen(8081, () => {
-    console.log('Server running on port:8081');
+server.listen(process.env.PORT || 44444, () => {
+    console.log(process.env.PORT)
+    console.log(`Server running on port:${process.env.PROFILE}`);
 });
