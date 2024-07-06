@@ -66,10 +66,11 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           username: ubuntu
-          host: ${{ secrets.LIVE_SERVER_IP }}
+          host: ${{ secrets.ELASTIC_IP }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script_stop: true
           script: |
+            mkdir success
             sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/cicd_test:latest
             sudo docker-compose -f docker-compose-${{env.TARGET_UPSTREAM}}.yml up -d
       
