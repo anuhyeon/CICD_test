@@ -23,20 +23,20 @@ wss.on('connection', (ws, req) => {
 // server 객체는 HTTP 서버를 시작하고 WebSocket 서버를 바인딩하는 데 사용되고,
 // 라우팅은 app 객체에서 처리하는 것이 맞음.
 app.get('/', (req, res) => {
-    res.send('Hello, World!');
+    res.send('암묭');
 });
 
 app.get('/json', (req, res) => {
-    res.json({ message: 'Hello, World!', status: 'success' });
+    res.json({ message: '암묭', status: 'success' });
 });
 
 app.get('/html', (req, res) => {
-    res.send('<h1>Hello, World!</h1><p>Welcome to my website.</p>');
+    res.send('<h1>암묭!</h1><p>하하하하하하.</p>');
 });
 
-app.get('/file', (req, res) => {
-    res.sendFile(path.join(__dirname, 'path/to/your/file.txt'));
-});
+// app.get('/file', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'path/to/your/file.txt'));
+// });
 
 app.get('/status', (req, res) => {
     const serverProfile = process.env.PROFILES || 'No color set'
